@@ -222,8 +222,8 @@ const SettingSection: React.FC<SettingSectionProps> = ({
     if (matchCount === 0) return null;
 
     return (
-      <div className="flex flex-col gap-2">
-        <div className="flex items-center justify-between px-4 mb-1">
+      <div className="flex flex-col gap-2.5">
+        <div className="flex items-center justify-between px-4">
           <div>
             <h3 className="text-sm font-semibold text-white mb-0.5">
               {highlightMatch(tabName, searchQuery)}
@@ -243,7 +243,7 @@ const SettingSection: React.FC<SettingSectionProps> = ({
   return (
     <div className="flex flex-col gap-2.5">
       {defaultHeading ? (
-        <div className="px-4 mb-1">
+        <div className="px-4">
           <h3 className="text-sm font-semibold text-white">{defaultHeading}</h3>
         </div>
       ) : (
@@ -1004,9 +1004,9 @@ const AppearanceTab: React.FC<AppearanceTabProps> = React.memo(({ onOpenFontPick
 
       {/* Section 2: Visual Themes Showcase */}
       {isThemeSearchMatch && (
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2.5">
         {showAllOccurrences && searchQuery.trim() ? (
-          <div className="flex items-center justify-between px-4 mb-1">
+          <div className="flex items-center justify-between px-4">
             <div>
               <h3 className="text-sm font-semibold text-white mb-0.5">
                 {highlightMatch('Appearance', searchQuery)}
@@ -1019,7 +1019,7 @@ const AppearanceTab: React.FC<AppearanceTabProps> = React.memo(({ onOpenFontPick
         ) : (
           <div className="flex items-center justify-between px-4">
             <div>
-              <h4 className="text-sm font-semibold text-white flex items-center gap-2">
+              <h4 className="text-sm font-semibold text-white flex items-center gap-2 mb-0.5">
                 <span>Themes</span>
                 <span className="px-1.5 py-0.5 text-[10px] font-semibold bg-[#2a2a2a] text-[#888] rounded-full">
                   {allThemes.length}
@@ -2841,9 +2841,9 @@ const HotkeysTab: React.FC = React.memo(() => {
   }
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-2.5">
       {showAllOccurrences && searchQuery.trim() ? (
-        <div className="flex items-center justify-between px-4 mb-1">
+        <div className="flex items-center justify-between px-4">
           <div>
             <h3 className="text-sm font-semibold text-white mb-0.5">
               {highlightMatch('Hotkeys', searchQuery)}
@@ -2869,7 +2869,7 @@ const HotkeysTab: React.FC = React.memo(() => {
       ) : (
         <div className="flex items-center justify-between px-4">
           <div>
-            <h3 className="text-sm font-semibold text-white mb-1">Hotkeys</h3>
+            <h3 className="text-sm font-semibold text-white mb-0.5">Hotkeys</h3>
             <p className="text-[11px] text-[#777]">View and customize keyboard shortcuts across all commands.</p>
           </div>
           {Object.keys(customHotkeys).length > 0 && (
@@ -2903,7 +2903,7 @@ const HotkeysTab: React.FC = React.memo(() => {
         </div>
       )}
 
-      <div className="bg-[#202020] border border-[#2a2a2a] rounded-xl overflow-hidden divide-y divide-[#282828] mt-1">
+      <div className="bg-[#202020] border border-[#2a2a2a] rounded-xl overflow-hidden divide-y divide-[#282828]">
         {filteredCommands.map((cmd) => {
           const cmdTitle = typeof cmd.title === 'function' ? cmd.title(app) : cmd.title;
           const activeHotkey = customHotkeys[cmd.id] !== undefined ? customHotkeys[cmd.id] : cmd.hotkey;
@@ -3041,9 +3041,9 @@ const CoreExtensionsTab: React.FC<CoreExtensionsTabProps> = React.memo(({ onNavi
   }
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-2.5">
       {showAllOccurrences && searchQuery.trim() ? (
-        <div className="px-4 mb-1">
+        <div className="px-4">
           <h3 className="text-sm font-semibold text-white mb-0.5">
             {highlightMatch('Built-in extensions', searchQuery)}
           </h3>
@@ -3053,14 +3053,14 @@ const CoreExtensionsTab: React.FC<CoreExtensionsTabProps> = React.memo(({ onNavi
         </div>
       ) : (
         <div className="px-4">
-          <h3 className="text-sm font-semibold text-white mb-1">Built-in extensions</h3>
+          <h3 className="text-sm font-semibold text-white mb-0.5">Built-in extensions</h3>
           <p className="text-[11px] text-[#777]">
             Built-in features designed as modular extensions. Toggle them anytime.
           </p>
         </div>
       )}
 
-      <div className="bg-[#202020] border border-[#2a2a2a] rounded-xl overflow-hidden divide-y divide-[#282828] mt-1">
+      <div className="bg-[#202020] border border-[#2a2a2a] rounded-xl overflow-hidden divide-y divide-[#282828]">
         {filteredCore.map((ext) => {
           const isEnabled = app.extensions.isExtensionEnabled(ext.id);
           const settingsTab = coreExtensionTabs.find((tab) => isTabMatch(tab, ext.id));
@@ -3248,9 +3248,9 @@ const CommunityExtensionsTab: React.FC<CommunityExtensionsTabProps> = React.memo
   }
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-2.5">
       {showAllOccurrences && searchQuery.trim() ? (
-        <div className="px-4 mb-1">
+        <div className="px-4">
           <h3 className="text-sm font-semibold text-white mb-0.5">
             {highlightMatch('Community extensions', searchQuery)}
           </h3>
@@ -3261,7 +3261,7 @@ const CommunityExtensionsTab: React.FC<CommunityExtensionsTabProps> = React.memo
       ) : (
         <div className="flex items-center justify-between px-4">
           <div>
-            <h3 className="text-sm font-semibold text-white mb-1">Community extensions</h3>
+            <h3 className="text-sm font-semibold text-white mb-0.5">Community extensions</h3>
             <p className="text-[11px] text-[#777]">
               Installed community extensions in your Vault.
             </p>
